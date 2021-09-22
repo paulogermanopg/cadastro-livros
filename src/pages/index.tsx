@@ -1,6 +1,15 @@
+import Estante from "../components/Estante";
 import Layout from "../components/Layout";
+import Livro from '../core/Livro'
 
 export default function Home() {
+
+  const livros = [
+    new Livro('A Guerra dos Tronos', 'George Martin', 'qualquer uma', 580),
+    new Livro('O Paradoxo do Caos', 'Paulo Germano', 'um livro massa', 534),
+    new Livro('Mistério em Barbalha', 'Silva Silva', 'oxente', 210)
+  ]
+
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -8,7 +17,7 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Acervo">
-        <span>Conteúdo</span>
+        <Estante livros={livros}></Estante>
       </Layout>
     </div>
   )
