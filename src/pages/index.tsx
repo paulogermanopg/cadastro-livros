@@ -1,3 +1,4 @@
+import Botao from "../components/Botao";
 import Estante from "../components/Estante";
 import Layout from "../components/Layout";
 import Livro from '../core/Livro'
@@ -25,6 +26,17 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Acervo">
+        <div className="flex">
+            <div className="flex-1 items-start">
+              <Botao className=" mb-4 " >Exibir livros</Botao>
+            </div>
+            <div className="flex items-end ">
+              <Botao className=" mb-4 " >Adicionar livro</Botao>
+            </div>
+        </div>
+          
+
+
         <Estante 
           livros={livros}
           livroSelect={livroSelect}
