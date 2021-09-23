@@ -10,6 +10,14 @@ export default function Home() {
     new Livro('Mistério em Barbalha', 'Silva Silva', 'oxente', 210)
   ]
 
+  function livroSelect(livro: Livro) {
+
+  }
+
+  function livroDel(livro: Livro) {
+
+  }
+
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -17,7 +25,10 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Acervo">
-        <Estante livros={livros}></Estante>
+        <Estante 
+          livros={livros}
+          livroSelect={livroSelect}
+          livroDel={livroDel}></Estante>
       </Layout>
     </div>
   )
