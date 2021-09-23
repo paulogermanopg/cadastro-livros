@@ -37,7 +37,7 @@ export default class Livro {
     }
 
     get paginas() {
-        return this.#autor
+        return this.#paginas
     }
 
 }

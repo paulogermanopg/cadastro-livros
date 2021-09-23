@@ -1,5 +1,6 @@
 import Botao from "../components/Botao";
 import Estante from "../components/Estante";
+import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
 import Livro from '../core/Livro'
 
@@ -34,13 +35,13 @@ export default function Home() {
               <Botao className=" mb-4 " >Adicionar livro</Botao>
             </div>
         </div>
-          
 
-
-        <Estante 
+        {/* <Estante
           livros={livros}
           livroSelect={livroSelect}
-          livroDel={livroDel}></Estante>
+          livroDel={livroDel}></Estante> */}
+
+        <Formulario livro={livros[1]}/>
       </Layout>
     </div>
   )
