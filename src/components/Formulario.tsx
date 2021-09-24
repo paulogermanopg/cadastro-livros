@@ -5,6 +5,8 @@ import Botao from './Botao'
 
 interface FormularioProps {
     livro: Livro
+    outroLivro?: (livro: Livro) => void
+    cancelar?: () => void
 }
 
 export default function Formulario(props: FormularioProps) {
@@ -43,10 +45,10 @@ export default function Formulario(props: FormularioProps) {
 
             <div className='flex justify-end mt-5'>
                 <Botao className='m-2'
-                    onClick={() => props.clienteMudou?.(new Livro(nome, +idade, id))}>
+                    onClick={() => props.outroLivro?.(new Livro(titulo, autor, sinopse, +paginas, id))}>
                     {id ? 'Alterar' : 'Salvar'}
                 </Botao>
-                <Botao onClick={props.cancelado} className='m-2'>
+                <Botao onClick={props.cancelar} className='m-2'>
                     Cancelar
                 </Botao>
             </div>
