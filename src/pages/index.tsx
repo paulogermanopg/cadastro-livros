@@ -1,28 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ColecaoLivro from "../backend/dataBase/ColecaoLivro";
 import Botao from "../components/Botao";
 import Estante from "../components/Estante";
 import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
 import Livro from '../core/Livro'
+import LivroRepositorio from "../core/LivroRepositorio";
 
 export default function Home() {
 
+  const repositorio: LivroRepositorio = new ColecaoLivro()
+
   const [livro, setLivro] = useState<Livro>(Livro.vazio())
   const [mostrar, setMostrar] = useState<'estante' | 'form'>('estante')
+  const [livros, setLivros] = useState<Livro[]>()
 
-  const livros = [
-    new Livro('A Guerra dos Tronos', 'George Martin', 'qualquer uma', 580),
-    new Livro('O Paradoxo do Caos', 'Paulo Germano', 'um livro massa', 534),
-    new Livro('Mistério em Barbalha', 'Silva Silva', 'oxente', 210)
-  ]
+  useEffect(leitura, [])
+
+  function leitura() {
+    repositorio.leitura().then(livros => {
+      setLivros(livros)
+      setMostrar('estante')
+    })
+  }
 
   function livroSelect(livro: Livro) {
     setLivro(livro)
     setMostrar('form')
   }
 
-  function livroDel(livro: Livro) {
-
+  async function livroDel(livro: Livro) {
+    await repositorio.excluir(livro)
+    leitura()
   }
 
   function novoLivro() {
@@ -30,8 +39,9 @@ export default function Home() {
     setMostrar('form')
   }
 
-  function salvarLivro(livro: Livro) {
-    setMostrar('estante')
+  async function salvarLivro(livro: Livro) {
+    await repositorio.salvar(livro)
+    leitura()
   }
 
   return (
