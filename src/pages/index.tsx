@@ -87,7 +87,11 @@ export default function Home() {
         )}
 
       </Layout>
-      <ModalLivro open={modalIsOpen} onCancel={closeModal}/>
+      {console.log(typeof livros === "object")}
+      {typeof livros === "object" &&  
+        <ModalLivro open={modalIsOpen} onCancel={closeModal} livros={livros}/>
+      }
+      
     </div>
   )
 }
