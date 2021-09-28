@@ -6,6 +6,7 @@ import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
 import Livro from '../core/Livro'
 import LivroRepositorio from "../core/LivroRepositorio";
+import ModalLivro from "../components/ModalLivros";
 
 export default function Home() {
 
@@ -14,8 +15,17 @@ export default function Home() {
   const [livro, setLivro] = useState<Livro>(Livro.vazio())
   const [mostrar, setMostrar] = useState<'estante' | 'form'>('estante')
   const [livros, setLivros] = useState<Livro[]>()
+  const [modalIsOpen, setIsOpen] = useState(false)
 
   useEffect(leitura, [])
+  
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   function leitura() {
     repositorio.leitura().then(livros => {
@@ -51,12 +61,11 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Acervo">
-        
 
         {mostrar == 'estante' ? (
             <div>
               <div className="flex">
-                  <div className="flex-1 items-start">
+                  <div onClick={openModal} className="flex-1 items-start">
                     <Botao className=" mb-4 " >Exibir livros</Botao>
                   </div>
                   <div onClick={novoLivro} className="flex items-end ">
@@ -76,10 +85,9 @@ export default function Home() {
               cancelar={() => setMostrar('estante')}/>
           </div>
         )}
-        
 
-        
       </Layout>
+      <ModalLivro open={modalIsOpen} onCancel={closeModal}/>
     </div>
   )
 }

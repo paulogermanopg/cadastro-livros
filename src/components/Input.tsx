@@ -12,18 +12,34 @@ export default function Input(props: InputProps) {
             <label className='my-2 ml-2'>
                 {props.texto}
             </label>
-            <input 
-                type={props.tipo ?? 'text'}
+            {props.texto == 'Sinopse' &&
+                <textarea name="" id=""  rows={5} 
                 value={props.valor}
-                readOnly={props.somenteLeitura}
                 onChange={e => props.valorMudou?.(e.target.value)}
                 className={`
-                    border border-yellow-500 rounded-lg
-                    focus:outline-none bg-gray-50
-                    focus:bg-white
-                    px-4 py-2
-                `}
-            />
+                        border border-yellow-500 rounded-lg
+                        focus:outline-none bg-gray-50
+                        focus:bg-white
+                        px-4 py-2
+                    `}>
+                    
+                </textarea>
+            }
+            {props.texto != 'Sinopse' &&
+                <input 
+                    type={props.tipo ?? 'text'}
+                    value={props.valor}
+                    readOnly={props.somenteLeitura}
+                    onChange={e => props.valorMudou?.(e.target.value)}
+                    className={`
+                        border border-yellow-500 rounded-lg
+                        focus:outline-none bg-gray-50
+                        focus:bg-white
+                        px-4 py-2
+                    `}
+                />
+            }
+            
         </div>
     )
 }
