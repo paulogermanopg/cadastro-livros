@@ -58,7 +58,7 @@ export default function Home() {
     <div className={`
       flex justify-center items-center h-screen
       bg-gradient-to-r from-white to-yellow-100
-      text-white
+      text-white 
     `}>
       <Layout titulo="Acervo">
 

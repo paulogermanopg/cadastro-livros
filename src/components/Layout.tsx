@@ -10,7 +10,7 @@ export default function Layout(props: LayoutProps) {
         <div className={`
             flex flex-col w-2/3
             bg-white text-gray-800 rounded-xl
-            border-2 border-yellow-200
+            border-2 border-yellow-200 
         `}>
 
             <Titulo>{props.titulo}</Titulo>
