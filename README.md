@@ -1,8 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Acervo Cadastro-Livro
 
-## Getting Started
+![Preview-Screens](https://github.com/paulogermanopg/cadastro-livros/blob/main/imagem.png)
 
-First, run the development server:
+## Sobre este projeto
+
+Este projeto traz como ideia um pequeno CRUD para cadastramento de livros, com uma interface simples e agradável aos olhos do usuário. Possibilitando o armazenamento com um banco de dado online. No projeto aqui presente foi utilizado o Firebase.
+
+## O motivo
+
+O projeto tem como objetivo exemplificar um CRUD adaptável para inúmeras situações, naõ apenas para acervos. Ele faz parte de meu portfólio pessoal, então sinta-se livre para dar seu feedback, criar seus forks e opinar; e se de algum modo este projeto foi importante para você eu já me sinto satisfeito.
+
+Meu LinkedIn, disponível em: [LinkedIn](https://www.linkedin.com/in/paulo-germano-pg/).
+
+## Instalação
+
+Este é um projeto [Next.js](https://nextjs.org/) criado através de [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Startando o projeto 
+(perdoem-me o neologismo) 
+
+Primeiramente, execute o servidor com:
 
 ```bash
 npm run dev
@@ -10,25 +27,52 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra em seu navegador [http://localhost:3000](http://localhost:3000) para ver o rultado da aplicação.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Estilo da aplicação
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+O projeto traz como estilo de seus componentes o [TailWind CSS](https://tailwindcss.com/), com ícones obtidos em [Hero Icons](https://heroicons.com/).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Armazenamento
 
-## Learn More
+O projeto usa para armazenamento dos dados o Firebase. Para criar uma conta no firebase acesse: [Firebase](https://firebase.google.com/?hl=pt)
+Crie um novo projeto e acesse o Firestore. Em suas configurações encontrará as informações necessárias para preencher o .env.local de seu projeto.
 
-To learn more about Next.js, take a look at the following resources:
+## .env.local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Crie um arquivo chamado .env.local na pasta raiz de sua aplicação, ele não será enviado para o seu repositório pois irá contar as informações sensíveis do seu banco de dados.
+Nele deverá ser digitado tais informações:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+NEXT_PUBLIC_FIREBASE_API_KEY=
 
-## Deploy on Vercel
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Encontradas nas configurações do Firestore Database.
+
+## Clonando o repositório
+
+**Clone o repositório com:**
+
+```
+$ git clone https://github.com/paulogermanopg/cadastro-livros.git
+$ cd cadastro-livros
+```
+
+**Instale as dependências com:**
+
+```
+$ yarn
+```
+
+_ou_
+
+```
+$ npm i
+
+```
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE.md](https://github.com/paulogermanopg/cadastro-livros/blob/main/LICENSE) para obter detalhes.
